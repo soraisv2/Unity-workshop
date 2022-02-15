@@ -1,17 +1,27 @@
 # Unity-workshop
 
-1/ Environnement
+##### Sommaire
 
-Vous devez créer :
-- Terrain
-- Player
+- Environement
+- Player object
   - Physics
-  - Rigidbody
-  - Camera
-- Cible
+  - Movement script
+  - Gun script
+- Camera
+  - Following player script
+- target
+  - Collision detector
+- Post processing
 
+### 1/ Environnement
 
-2/ Movement
+Dans la "Hierarchy" de votre projet vous pouvez créer un nouvel objet en faisant un clique droit->3D Object->Cube. Ensuite jouez avec le cube pour lui donner la taille souhaitée.
+
+### 2/ Player Object
+
+Créer un objet vide `Create empty` dans la hierarchy, Et appelé le "Player"
+
+### 3/ Movement
 
 Creer un script C# et mettez le sur votre objet "Player"
 Commencez par mettre les variable minimum pour le deplacement :
@@ -36,7 +46,9 @@ public class PlayerMovement : MonoBehaviour
 }
 ```
 
-Attribuer un composant de votre object a votre script :
+## Quelques méthodes pour commencer
+
+Lié un composant de votre object à votre script :
 
 ```c#
     Rigidbody rb;
