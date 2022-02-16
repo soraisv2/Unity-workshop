@@ -62,7 +62,7 @@ Lié un composant de votre object à votre script :
 Deplacez la physic `FixedUpdate()` de preference.
 
 ```c#
-private void FixedUpdate()
+private void FixedUpdate() 
 {
     // 
 }
