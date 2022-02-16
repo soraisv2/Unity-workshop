@@ -21,34 +21,46 @@ Dans la "Hierarchy" de votre projet vous pouvez créer un nouvel objet en faisan
 
 Créer un objet vide `Create empty` dans la hierarchy, Et appelé le "Player"
 
-### 3/ Movement
+Creer un script C# et mettez le sur votre Player
+Votre Player est maintenant prés à etre configuré.
 
-Creer un script C# et mettez le sur votre objet "Player"
-Commencez par mettre les variable minimum pour le deplacement :
+Votre Objet "Player" va devoir posséder certaines références comme la position de la camera, le position du sol etc... Pour cela vous pouvez creer des objets vides en tant qu'enfant de votre Player pour qu'ils puissent en hériter. (Ils vo)
 
-```c#
-public class PlayerMovement : MonoBehaviour
-{
-    Rigidbody rb;
-    private float movementMultiplier = 1f;
-    private float airMultiplier = 1f;
+### 3/ Camera
+La camera doit être utilisé en dehors de l'objet "Player", elle doit le suivre indépendament. Mais également doit permettre au player de s'orienter.
+> Les enfants d'un objet heritent de toutes les variables de ce dernier.
 
-    [Header("Movement")]
-    public float speed = 5f;
-    public Transform groundPosition;
-    public LayerMask groundMask;
-    [SerializeField] Transform orientation;
-
-    Vector3 direction;
-    bool isGrounded;
-    float horizontal;
-    float vertical;
-}
-```
 
 ## Quelques méthodes pour commencer
 
-Lié un composant de votre object à votre script :
+La fonction `Start` s'excute une fois au lancement pour l'initialisation :
+
+```c#
+   private void Start()
+   {
+       // initialisation
+   }
+```
+
+La fonction `Update` est appelé à chaque frame et fontionne indépendament de la physique :
+
+```c#
+   private vois Update()
+   {
+       // calculation
+   }
+```
+
+Update les objets physiques dans `FixedUpdate()` de preference.
+
+```c#
+private void FixedUpdate() 
+{
+    // Physics engine
+}
+```
+
+Lié un composant de votre objet à votre script :
 
 ```c#
     Rigidbody rb;
@@ -57,13 +69,4 @@ Lié un composant de votre object à votre script :
     {
         rb = GetComponent<Rigidbody>();
     }
-```
-
-Deplacez la physic `FixedUpdate()` de preference.
-
-```c#
-private void FixedUpdate() 
-{
-    // 
-}
 ```
